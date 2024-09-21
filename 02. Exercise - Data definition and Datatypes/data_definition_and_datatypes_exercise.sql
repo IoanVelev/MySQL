@@ -31,4 +31,4 @@ INSERT INTO minions VALUES
 (3, 'Steward', NULL, 2);
 
 
-SELECT id, name FROM minions;
+SELECT * FROM minions;
