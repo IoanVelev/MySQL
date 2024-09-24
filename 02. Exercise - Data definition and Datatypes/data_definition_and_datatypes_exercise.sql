@@ -34,3 +34,5 @@ INSERT INTO minions VALUES
 SELECT * FROM minions;
 
 TRUNCATE TABLE minions;
+
+DROP TABLE minions, towns;
