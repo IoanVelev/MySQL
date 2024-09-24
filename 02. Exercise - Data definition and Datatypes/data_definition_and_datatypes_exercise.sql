@@ -59,3 +59,21 @@ INSERT INTO people VALUES
 
 SELECT * FROM people;
 
+CREATE TABLE users (
+    id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(26) NOT NULL,
+    profile_picture TEXT,
+    last_login_time DATETIME,
+    is_deleted BOOLEAN
+);
+
+INSERT INTO users(username, password, profile_picture, last_login_time, is_deleted) VALUES
+('Barnminator', 'asdasd', 'image.png', '2024-09-24 18:09:30', false),
+('Peter123', '123123', 'image.png', '2022-02-22 21:02:30', false),
+('Nicole', '12345', 'image.png', '2023-09-24 23:09:34', false),
+('Lex', 'dsadsa', 'image.png', '2024-09-23 12:09:30', false),
+('Brooke', 'asddsa', 'image.png', '2021-09-25 14:16:30', false);
+
+SELECT * FROM users;
+
