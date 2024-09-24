@@ -77,3 +77,9 @@ INSERT INTO users(username, password, profile_picture, last_login_time, is_delet
 
 SELECT * FROM users;
 
+ALTER TABLE users
+DROP PRIMARY KEY,
+ADD CONSTRAINT pk_users
+PRIMARY KEY(id, username);
+
+
