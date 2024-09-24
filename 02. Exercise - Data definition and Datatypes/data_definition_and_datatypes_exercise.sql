@@ -1,7 +1,8 @@
 CREATE DATABASE minions;
 
+/*
 USE minions;
-
+*/
 CREATE TABLE minions (
     id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50),
@@ -55,4 +56,6 @@ INSERT INTO people VALUES
 (3, 'Yana', 'img.png', 1.61, 51, 'F', '2004-02-13', 'test123'),
 (4, 'Iva', 'img.png', 1.62, 51, 'F', '2001-06-02', 'test123'),
 (5, 'Kiro', 'img.png', 1.85, 71, 'M', '2002-03-03', 'test123');
+
+SELECT * FROM people;
 
