@@ -36,3 +36,23 @@ SELECT * FROM minions;
 TRUNCATE TABLE minions;
 
 DROP TABLE minions, towns;
+
+CREATE TABLE people (
+    id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+    picture TEXT,
+    height DOUBLE(3, 2),
+    weight DOUBLE(5, 2),
+    gender CHAR(1) NOT NULL,
+    birthdate DATE NOT NULL,
+    biography TEXT
+);
+
+
+INSERT INTO people VALUES 
+(1, 'Gosho', 'img.png', 1.92, 85, 'M', '1994-01-01', 'test123'),
+(2, 'Peter', 'img.png', 1.82, 85, 'M', '1999-08-01', 'test123'),
+(3, 'Yana', 'img.png', 1.61, 51, 'F', '2004-02-13', 'test123'),
+(4, 'Iva', 'img.png', 1.62, 51, 'F', '2001-06-02', 'test123'),
+(5, 'Kiro', 'img.png', 1.85, 71, 'M', '2002-03-03', 'test123');
+
