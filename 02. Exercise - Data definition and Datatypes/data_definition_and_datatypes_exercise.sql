@@ -91,3 +91,10 @@ Use modify column when you only want to modify the data
 Use change column when you want to change the column name as well - e.g. CHANGE COLUMN column_name column_name DATETIME DEFAULT NOW();
 */
 
+ALTER TABLE users
+DROP PRIMARY KEY,
+ADD PRIMARY KEY(id);
+
+ALTER TABLE users
+MODIFY username VARCHAR(30) NOT NULL UNIQUE;
+
