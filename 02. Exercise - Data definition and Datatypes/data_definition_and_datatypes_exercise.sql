@@ -102,3 +102,61 @@ MODIFY username VARCHAR(30) NOT NULL UNIQUE;
 CREATE DATABASE movies;
 
 USE movies;
+
+CREATE TABLE directors (
+    id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+	director_name VARCHAR(50) NOT NULL,
+    notes TEXT
+);
+
+CREATE TABLE genres (
+    id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+    genre_name VARCHAR(50) NOT NULL,
+    notes TEXT
+);
+
+CREATE TABLE categories (
+    id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(50) NOT NULL,
+    notes TEXT
+);
+
+CREATE TABLE movies (
+    id INT NOT NULL UNIQUE AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(50) NOT NULL,
+    director_id INT,
+    copyright_year DATE,
+    length INT,
+    genre_id INT,
+    category_id INT,
+    rating DOUBLE(2,1),
+    notes TEXT
+);
+
+INSERT INTO directors(director_name, notes) VALUES 
+('Frank', 'abcd'),
+('Amy', 'dcba'),
+('Emily', 'test213'),
+('Liam', 'qwerty'),
+('Mike', 'test text');
+
+INSERT INTO genres (genre_name, notes) VALUES
+('Action', 'asdasd'),
+('Romantic', 'dsadsa'),
+('Documentary', 'great'),
+('History', 'nice'),
+('Sci-Fi', 'epic');
+
+INSERT INTO categories(category_name, notes) VALUES
+('16+', 'asdasd'),
+('16+', 'dsadsa'),
+('14+', 'great'),
+('12+', 'nice'),
+('14+', 'epic');
+
+INSERT INTO movies VALUES
+(1, 'Rush Hour', 1, '2003-12-13', 120, 1, 1, 9.7, 'Great movie'),
+(2, 'Great Gatsby', 2, '1999-12-2', 120, 2, 2, 9.5, 'Great movie'),
+(3, 'Before the flood', 3, '1982-5-14', 150, 3, 3, 9.6, 'Great movie'),
+(4, 'Great Gatsby', 4, '2003-12-13', 120, 4, 4, 9.7, 'Great movie'),
+(5, 'Inception', 1, '2010-10-10', 180, 5, 5, 9.9, 'Epic movie');
