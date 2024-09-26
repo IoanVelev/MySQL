@@ -98,3 +98,7 @@ ADD PRIMARY KEY(id);
 ALTER TABLE users
 MODIFY username VARCHAR(30) NOT NULL UNIQUE;
 
+
+CREATE DATABASE movies;
+
+USE movies;
