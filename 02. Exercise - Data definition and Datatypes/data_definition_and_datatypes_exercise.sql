@@ -160,3 +160,97 @@ INSERT INTO movies VALUES
 (3, 'Before the flood', 3, '1982-5-14', 150, 3, 3, 9.6, 'Great movie'),
 (4, 'Great Gatsby', 4, '2003-12-13', 120, 4, 4, 9.7, 'Great movie'),
 (5, 'Inception', 1, '2010-10-10', 180, 5, 5, 9.9, 'Epic movie');
+
+
+CREATE DATABASE car_rental;
+
+USE car_rental;
+
+CREATE TABLE categories(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    category VARCHAR(100),
+    daily_rate DOUBLE(10,2),
+    weekly_rate DOUBLE(10,2),
+    monthly_rate DOUBLE(10,2),
+    weekend_rate DOUBLE(10,2)
+);
+
+CREATE TABLE cars(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    plate_number VARCHAR(10),
+    make VARCHAR(100),
+    model VARCHAR(50),
+    car_year DATE,
+    category_id INT,
+    doors INT,
+    picture BLOB,
+    car_condition VARCHAR(100),
+    available BOOLEAN
+);
+
+CREATE TABLE employees(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    title VARCHAR(100),
+    notes TEXT
+);
+
+CREATE TABLE customers(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    driver_licence_number INT,
+    full_name VARCHAR(100),
+    address VARCHAR(100),
+    city VARCHAR(100),
+    zip_code INT,
+    notes TEXT
+);
+
+CREATE TABLE rental_orders(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    employee_id INT,
+    customer_id INT,
+    car_id INT,
+    car_condition VARCHAR(100),
+    tank_level DOUBLE(5,2),
+    kilometrage_start INT,
+    kilometrage_end INT,
+    total_kilometrage INT,
+    start_date DATE,
+    end_date DATE,
+    total_days INT,
+    rate_applied DOUBLE(5,2),
+    tax_rate DOUBLE(5,2),
+    order_status VARCHAR(100),
+    notes TEXT
+);
+
+INSERT INTO categories(category, daily_rate, weekly_rate, monthly_rate, weekend_rate) VALUES
+('SUV', 12, 20.5, 40.5, 40),
+('Motorcycle', 12, 20.5, 40.5, 40),
+('Yacht', 12, 20.5, 40.5, 40);
+
+INSERT INTO cars(plate_number, make, model, car_year, category_id, doors, picture, car_condition, available) VALUES
+('SV7262NE', 'Volvo', 'S60', '2005-12-30', 1, 4, NULL, 'very good', true),
+('PK8451AP', 'Audi', 'A4', '2004-10-30', 2, 4, NULL, 'solid', true),
+('SV1111SV', 'Toyota', 'Corolla', '2007-10-12', 3, 4, NULL, 'very good', true);
+
+INSERT INTO employees(first_name, last_name, title, notes) VALUES
+('Joro', 'Beckham', 'Sales', 'random'),
+('Iva', 'Kirilova', 'Marketing', 'random'),
+('Gaco', 'Bacov', 'Sales', 'random');
+
+INSERT INTO customers(driver_licence_number, full_name, address, city, zip_code, notes) VALUES
+(12345, 'Gaco Bacov', 'str. Burziq 1', 'Vratsa', 1212, 'random'),
+(123321, 'Baco Gacov', 'str. Burziq 2', 'Vratsa', 1212, 'random'),
+(321123, 'Jo Burziq', 'str. Burziq 10', 'Vratsa', 1212, 'random');
+
+INSERT INTO rental_orders(employee_id, customer_id, car_id, car_condition, tank_level, kilometrage_start, kilometrage_end, total_kilometrage, start_date, end_date, total_days, rate_applied, tax_rate, order_status, notes) VALUES
+(1, 1, 1, 'Solid', 100, 50000, 60000, 10000, '2024-09-10', '2024-09-11', 1, 5.5, 10, 'Finished', 'Test'),
+(2, 1, 1, 'Good', 100, 40000, 50000, 10000, '2024-09-09', '2024-09-11', 1, 5.5, 10, 'Finished', 'Test'),
+(3, 1, 1, 'Solid', 100, 60000, 70000, 10000, '2024-09-10', '2024-09-13', 1, 5.5, 10, 'Finished', 'Test');
+
+
+
+
+
