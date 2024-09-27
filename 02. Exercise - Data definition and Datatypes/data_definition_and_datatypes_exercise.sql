@@ -311,11 +311,11 @@ INSERT INTO employees(first_name, middle_name, last_name, job_title, department_
 ('Peter', 'Pan', 'Pan', 'Intern', 3, '2016-08-28', 599.88);
 
 
-SELECT * FROM towns ORDER BY name;
+SELECT name FROM towns ORDER BY name;
 
-SELECT * FROM departments ORDER BY name;
+SELECT name FROM departments ORDER BY name;
 
-SELECT * FROM employees ORDER BY salary DESC;
+SELECT first_name, last_name, job_title, salary FROM employees ORDER BY salary DESC;
 
 
 
