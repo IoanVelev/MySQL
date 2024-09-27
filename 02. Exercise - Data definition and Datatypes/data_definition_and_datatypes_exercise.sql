@@ -338,6 +338,14 @@ SELECT first_name, last_name, job_title, salary FROM employees ORDER BY salary D
 
 
 
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE employees SET salary = salary * 1.10;
+SELECT salary from employees;
+
+SET SQL_SAFE_UPDATES = 1;
+
+
 
 
 
