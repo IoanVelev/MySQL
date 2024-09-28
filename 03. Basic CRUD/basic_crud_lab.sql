@@ -47,3 +47,12 @@ FROM employees
 WHERE salary > 1000.00
 ORDER BY id;
 
+SELECT DISTINCT 
+    id,
+    first_name
+FROM employees;
+
+/*
+Use distint to eliminate duplicate results
+*/
+
