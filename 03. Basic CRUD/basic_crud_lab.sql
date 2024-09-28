@@ -56,3 +56,37 @@ FROM employees;
 Use distint to eliminate duplicate results
 */
 
+SELECT * FROM employees
+WHERE department_id = 4 AND salary > 1000
+ORDER BY id;
+
+SELECT * FROM employees
+WHERE department_id = 3 OR department_id = 4
+ORDER BY id;
+
+SELECT * FROM employees
+WHERE salary > 1000 AND salary < 2000;
+
+/*
+The AND operator displays a record if all the conditions separated by AND are TRUE.
+*/
+
+SELECT * FROM employees
+WHERE salary BETWEEN 1000 AND 2000;
+
+/*
+The BETWEEN operator is inclusive: begin and end values are included.
+*/
+
+
+SELECT * FROM employees
+WHERE department_id IN(3, 4, 5, 6);
+
+SELECT * FROM employees
+WHERE NOT first_name = 'John';
+
+/*
+For NOT EQUAL operator you can use also <> or !=
+*/
+
+
