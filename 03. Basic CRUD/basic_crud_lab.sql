@@ -32,3 +32,8 @@ SELECT
     CONCAT(first_name, ' ', last_name) AS 'Full Name'
 FROM employees;
 
+SELECT
+    id,
+    CONCAT_WS(' -> ', first_name, last_name, job_title, salary) AS 'Full Info'
+FROM employees;
+
