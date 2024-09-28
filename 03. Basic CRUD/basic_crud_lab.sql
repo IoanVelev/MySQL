@@ -27,3 +27,8 @@ SELECT
     e.last_name
 FROM hotel.employees as e;
 
+SELECT 
+    id,
+    CONCAT(first_name, ' ', last_name) AS 'Full Name'
+FROM employees;
+
