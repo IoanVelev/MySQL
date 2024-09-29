@@ -91,8 +91,27 @@ For NOT EQUAL operator you can use also <> or !=
 
 SELECT * FROM employees
 ORDER BY salary DESC, department_id;
-
 /*
 Order data by 2 criteria
 */
+
+SELECT
+    id AS 'No.',
+    CONCAT(first_name, ' ', last_name) as 'Full Name',
+    salary as 'Salary'
+FROM employees
+WHERE department_id = 1 OR department_id = 2
+ORDER BY first_name, last_name;
+
+CREATE VIEW `v_dept_1_2_info` AS
+    SELECT
+    id AS 'No.',
+    CONCAT(first_name, ' ', last_name) as 'Full Name',
+    salary as 'Salary'
+FROM employees
+WHERE department_id = 1 OR department_id = 2
+ORDER BY first_name, last_name; 
+
+SELECT * FROM `v_dept_1_2_info`
+WHERE salary > 1000;
 
