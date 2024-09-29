@@ -89,4 +89,10 @@ WHERE NOT first_name = 'John';
 For NOT EQUAL operator you can use also <> or !=
 */
 
+SELECT * FROM employees
+ORDER BY salary DESC, department_id;
+
+/*
+Order data by 2 criteria
+*/
 
