@@ -131,6 +131,10 @@ CREATE VIEW `v_top_paid_employee` AS
 SELECT * FROM v_top_paid_employee;
 
 
+/*
+Problem 3
+*/
+
 SET SQL_SAFE_UPDATES = 0;
 
 UPDATE employees
