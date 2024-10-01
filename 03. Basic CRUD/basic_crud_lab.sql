@@ -173,3 +173,18 @@ SELECT id, first_name, last_name
     WHERE department_id = 4;
 
 SELECT * FROM selected_filtered_employees;
+
+
+SELECT * FROM departments
+WHERE id IN (5, 6, 7);
+
+DELETE FROM departments
+WHERE id IN (5, 6, 7);
+
+SELECT * FROM departments;
+
+DELETE FROM employees
+WHERE department_id IN (1, 2);
+
+SELECT * FROM employees
+ORDER BY id;
