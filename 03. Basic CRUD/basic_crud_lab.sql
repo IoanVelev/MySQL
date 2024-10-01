@@ -130,3 +130,14 @@ CREATE VIEW `v_top_paid_employee` AS
     
 SELECT * FROM v_top_paid_employee;
 
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE employees
+SET salary = salary + 100 
+WHERE job_title = 'Manager';
+
+SET SQL_SAFE_UPDATES = 1;
+
+SELECT salary FROM employees;
+
