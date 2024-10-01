@@ -115,3 +115,14 @@ ORDER BY first_name, last_name;
 SELECT * FROM `v_dept_1_2_info`
 WHERE salary > 1000;
 
+SELECT * FROM employees
+ORDER BY salary DESC
+LIMIT 1;
+
+CREATE VIEW `v_top_paid_employee` AS 
+    SELECT * FROM employees
+    ORDER BY salary DESC
+    LIMIT 1;
+    
+SELECT * FROM v_top_paid_employee;
+
