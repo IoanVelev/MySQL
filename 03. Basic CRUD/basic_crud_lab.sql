@@ -145,3 +145,14 @@ SET SQL_SAFE_UPDATES = 1;
 
 SELECT salary FROM employees;
 
+
+/*
+Insert data
+*/
+INSERT INTO departments(name)
+VALUES 
+('Sales'),
+('Cloud'),
+('Web3');
+
+SELECT * FROM departments;
