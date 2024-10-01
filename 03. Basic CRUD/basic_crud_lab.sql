@@ -183,8 +183,21 @@ WHERE id IN (5, 6, 7);
 
 SELECT * FROM departments;
 
+
+/*
+Problem 6 
+*/
 DELETE FROM employees
 WHERE department_id IN (1, 2);
 
 SELECT * FROM employees
 ORDER BY id;
+
+
+/*
+Problem 5
+*/
+SELECT * FROM employees
+WHERE department_id = 4 AND salary >= 1000
+ORDER BY id;
+
