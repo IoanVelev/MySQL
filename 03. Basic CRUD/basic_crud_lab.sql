@@ -156,3 +156,20 @@ VALUES
 ('Web3');
 
 SELECT * FROM departments;
+
+CREATE TABLE `selected_employees` AS
+SELECT id, first_name, last_name FROM employees;
+
+SELECT * FROM selected_employees;
+
+/*
+Use existing table records to create new table with the selected data
+*/
+
+
+CREATE TABLE `selected_filtered_employees` AS
+SELECT id, first_name, last_name 
+    FROM employees
+    WHERE department_id = 4;
+
+SELECT * FROM selected_filtered_employees;
