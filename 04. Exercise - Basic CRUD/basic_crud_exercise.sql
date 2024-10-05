@@ -99,5 +99,7 @@ FROM countries
 ORDER BY country_name;
 
 
+USE diablo;
 
-
+SELECT name FROM characters
+ORDER BY name;
