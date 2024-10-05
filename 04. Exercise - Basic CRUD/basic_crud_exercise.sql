@@ -65,5 +65,7 @@ SELECT * FROM projects
 ORDER BY start_date, name, project_id
 LIMIT 10;
 
-
+SELECT first_name, last_name, hire_date FROM employees
+ORDER BY hire_date DESC
+LIMIT 7;
 
