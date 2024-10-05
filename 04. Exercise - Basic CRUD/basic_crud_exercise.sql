@@ -38,6 +38,13 @@ ORDER BY salary DESC
 LIMIT 5; /* OFFSET 1 - skips first entry from the already filtered data */
 
 SELECT first_name, last_name FROM employees
-WHERE department_id != 4;
+WHERE department_id != 4; /* Another way is <> 4 */
+
+SELECT * FROM employees
+ORDER BY salary DESC,
+first_name,
+last_name DESC,
+middle_name,
+employee_id;
 
 
