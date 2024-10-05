@@ -69,3 +69,17 @@ SELECT first_name, last_name, hire_date FROM employees
 ORDER BY hire_date DESC
 LIMIT 7;
 
+
+SELECT * FROM departments;
+
+
+SET SQL_SAFE_UPDATES = 1;
+
+UPDATE employees
+SET salary = salary * 1.12
+WHERE department_id IN (1, 2, 4, 11);
+
+SET SQL_SAFE_UPDATES = 0;
+
+SELECT salary FROM employees;
+
