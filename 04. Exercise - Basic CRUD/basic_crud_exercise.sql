@@ -83,3 +83,11 @@ SET SQL_SAFE_UPDATES = 0;
 
 SELECT salary FROM employees;
 
+
+USE geography;
+
+SELECT peak_name FROM peaks
+ORDER BY peak_name;
+
+
+
