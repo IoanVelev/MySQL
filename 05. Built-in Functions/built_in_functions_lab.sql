@@ -85,3 +85,11 @@ SELECT TIMESTAMPDIFF(DAY, '2022-09-12 20:43:32', NOW());
 SELECT CONCAT_WS(' ', first_name, last_name) AS `Full Name`,
 TIMESTAMPDIFF(DAY, born, died) AS `Days lived`
 FROM authors;
+--
+SELECT DATE_FORMAT(NOW(), '%Y %b %D');
+SELECT DATE_FORMAT('2017-02-10', '%Y %b %D');
+SELECT DATE_FORMAT('2017/02/10', '%Y %b %D');
+SELECT DATE_FORMAT(NOW(), '%d-%c-%Y');
+
+SELECT NOW();
+
