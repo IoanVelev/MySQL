@@ -93,3 +93,8 @@ SELECT DATE_FORMAT(NOW(), '%d-%c-%Y');
 
 SELECT NOW();
 
+/* Wildcards */
+SELECT title FROM books
+WHERE title LIKE 'Harry Potter%'
+ORDER BY id;
+
