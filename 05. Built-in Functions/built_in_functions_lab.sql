@@ -73,6 +73,10 @@ SELECT CEILING(PI());
 
 SELECT RAND() * 100;
 
+-- Problem 3
+SELECT TRUNCATE(SUM(cost), 2) AS 'book_prices' FROM books;
+--
+
 /*  Date functions */
 SELECT EXTRACT(MONTH FROM NOW());
 SELECT EXTRACT(HOUR_MINUTE FROM NOW());
@@ -94,7 +98,8 @@ SELECT DATE_FORMAT(NOW(), '%d-%c-%Y');
 SELECT NOW();
 
 /* Wildcards */
+-- Problem 5
 SELECT title FROM books
 WHERE title LIKE 'Harry Potter%'
 ORDER BY id;
-
+--
