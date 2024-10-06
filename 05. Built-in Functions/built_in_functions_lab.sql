@@ -103,3 +103,9 @@ SELECT title FROM books
 WHERE title LIKE 'Harry Potter%'
 ORDER BY id;
 --
+
+SELECT * FROM books
+WHERE title LIKE 'The%' OR title LIKE 'Harry%';
+
+SELECT * FROM books
+WHERE title REGEXP '^[a-d]';
