@@ -22,3 +22,9 @@ ORDER BY employee_id;
 SELECT first_name, last_name FROM employees
 WHERE job_title NOT LIKE '%Engineer%'
 ORDER BY employee_id;
+
+
+-- Problem 5
+SELECT name FROM towns
+WHERE LENGTH(name) IN (5, 6)
+ORDER BY name;
