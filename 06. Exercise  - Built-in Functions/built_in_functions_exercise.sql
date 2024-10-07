@@ -83,3 +83,8 @@ LIMIT 50;
 SELECT user_name, SUBSTRING(MID(email, POSITION('@' IN email)), 2) AS email_provider
 FROM users
 ORDER BY email_provider, user_name;
+
+-- Problem 14
+SELECT user_name, ip_address FROM users
+WHERE ip_address LIKE '___.1%.%.___'
+ORDER BY user_name;
