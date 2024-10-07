@@ -79,6 +79,7 @@ WHERE YEAR(start) IN (2011, 2012)
 ORDER BY start, name
 LIMIT 50;
 
-
-
-
+-- Problem 13
+SELECT user_name, SUBSTRING(MID(email, POSITION('@' IN email)), 2) AS email_provider
+FROM users
+ORDER BY email_provider, user_name;
