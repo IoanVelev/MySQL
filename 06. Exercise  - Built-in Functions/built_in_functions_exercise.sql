@@ -50,6 +50,10 @@ WHERE LEFT(name, 1) NOT IN ('R', 'B', 'D')
 ORDER BY name; -- 2nd approach
 
 
+-- Problem 8
+CREATE VIEW `v_employees_hired_after_2000` AS 
+SELECT first_name, last_name FROM employees
+WHERE YEAR(hire_date) > 2000;
 
-
+SELECT * FROM v_employees_hired_after_2000;
 
