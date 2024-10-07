@@ -57,3 +57,7 @@ WHERE YEAR(hire_date) > 2000;
 
 SELECT * FROM v_employees_hired_after_2000;
 
+-- Problem 9
+SELECT first_name, last_name FROM employees
+WHERE LENGTH(last_name) = 5;
+
