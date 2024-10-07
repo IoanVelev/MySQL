@@ -28,3 +28,11 @@ ORDER BY employee_id;
 SELECT name FROM towns
 WHERE LENGTH(name) IN (5, 6)
 ORDER BY name;
+
+-- Problem 6
+SELECT town_id, name FROM towns
+WHERE name LIKE 'M%' 
+    OR name LIKE 'K%' 
+    OR name LIKE 'B%' 
+    OR name LIKE'E%'
+ORDER BY name;
