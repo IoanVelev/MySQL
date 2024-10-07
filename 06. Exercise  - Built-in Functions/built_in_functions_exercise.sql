@@ -16,3 +16,9 @@ ORDER BY employee_id; -- 2nd approach
 SELECT first_name FROM employees
 WHERE department_id IN(3, 10) AND YEAR(hire_date) BETWEEN 1995 AND 2005
 ORDER BY employee_id;
+
+
+-- Problem 4
+SELECT first_name, last_name FROM employees
+WHERE job_title NOT LIKE '%Engineer%'
+ORDER BY employee_id;
