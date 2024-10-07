@@ -73,6 +73,12 @@ FROM peaks, rivers
 WHERE RIGHT(peak_name, 1) LIKE LEFT(river_name, 1)
 ORDER BY mix;
 
+-- Problem 12
+SELECT name, DATE_FORMAT(start, '%Y-%m-%d') FROM games
+WHERE YEAR(start) IN (2011, 2012)
+ORDER BY start, name
+LIMIT 50;
+
 
 
 
