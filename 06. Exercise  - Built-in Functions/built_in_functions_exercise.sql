@@ -61,3 +61,10 @@ SELECT * FROM v_employees_hired_after_2000;
 SELECT first_name, last_name FROM employees
 WHERE LENGTH(last_name) = 5;
 
+-- Problem 10
+SELECT country_name, iso_code FROM countries
+WHERE country_name LIKE '%A%A%A%'
+ORDER BY iso_code;
+
+
+

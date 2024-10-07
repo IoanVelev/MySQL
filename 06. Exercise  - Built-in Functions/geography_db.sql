@@ -29,6 +29,7 @@ INSERT INTO `continents` (`continent_code`, `continent_name`) VALUES
 
 
 
+
 CREATE TABLE IF NOT EXISTS `countries` (
   `country_code` char(2) NOT NULL,
   `iso_code` char(3) NOT NULL,
