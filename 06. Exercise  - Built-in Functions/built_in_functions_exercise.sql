@@ -36,3 +36,20 @@ WHERE name LIKE 'M%'
     OR name LIKE 'B%' 
     OR name LIKE'E%'
 ORDER BY name;
+
+-- Problem 7
+SELECT town_id, name FROM towns
+WHERE name NOT LIKE 'R%'
+    AND name NOT LIKE 'B%'
+    AND name NOT LIKE 'D%'
+ORDER BY name; -- 1st approach
+
+
+SELECT town_id, name FROM towns
+WHERE LEFT(name, 1) NOT IN ('R', 'B', 'D')
+ORDER BY name; -- 2nd approach
+
+
+
+
+
