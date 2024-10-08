@@ -19,4 +19,12 @@ GROUP BY department_id; -- Display departments with their lowest employee salary
 -- Problem 2
 SELECT department_id, ROUND(AVG(salary), 2) AS `Average salary`
 FROM employees
-GROUP BY department_id; -- Display departments with their average salary of all employees
+GROUP BY department_id -- Display departments with their average salary of all employees
+ORDER BY department_id;
+
+-- Problem 3
+SELECT department_id, ROUND(MIN(salary), 2) AS `min_salary`
+FROM employees
+GROUP BY department_id
+HAVING min_salary > 800;
+-- Side note: Where clause filters the rows before aggregation
