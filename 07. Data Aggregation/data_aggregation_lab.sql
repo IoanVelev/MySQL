@@ -15,3 +15,8 @@ GROUP BY department_id; -- Display departments with their highest employee salar
 SELECT department_id, MIN(salary) AS `min_salary`
 FROM employees
 GROUP BY department_id; -- Display departments with their lowest employee salary
+
+-- Problem 2
+SELECT department_id, ROUND(AVG(salary), 2) AS `Average salary`
+FROM employees
+GROUP BY department_id; -- Display departments with their average salary of all employees
