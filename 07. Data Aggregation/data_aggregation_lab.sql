@@ -29,3 +29,9 @@ FROM employees
 GROUP BY department_id
 HAVING min_salary > 800;
 -- Side note: Where clause filters the rows before aggregation
+
+-- Problem 4
+SELECT COUNT(category_id) AS appetizers_count FROM products
+WHERE category_id = 2 AND price > 8;
+
+
