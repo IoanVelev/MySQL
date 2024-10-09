@@ -110,3 +110,7 @@ FROM employees
 GROUP BY department_id
 HAVING max_salary NOT BETWEEN 30000 AND 70000
 ORDER BY department_id;
+
+-- Problem 15
+SELECT COUNT(salary) FROM employees
+WHERE manager_id IS NULL;
