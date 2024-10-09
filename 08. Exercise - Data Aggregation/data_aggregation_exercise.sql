@@ -79,3 +79,27 @@ GROUP BY deposit_group, is_deposit_expired
 ORDER BY deposit_group DESC, is_deposit_expired;
 
 -- Problem 12
+USE soft_uni;
+SELECT * FROM employees;
+SELECT department_id, MIN(salary) AS `minimum_salary`
+FROM employees
+WHERE department_id IN (2, 5, 7) AND hire_date > '2000/01/01'
+GROUP BY department_id
+ORDER BY department_id;
+
+-- Problem 13
+CREATE TABLE high_paid_employees
+SELECT * FROM employees
+WHERE salary > 30000;
+
+DELETE FROM high_paid_employees
+WHERE manager_id = 42;
+
+UPDATE high_paid_employees
+SET salary = salary + 5000
+WHERE department_id = 1;
+
+SELECT department_id, AVG(salary) AS `avg_salary`
+FROM high_paid_employees
+GROUP BY department_id
+ORDER BY department_id;
