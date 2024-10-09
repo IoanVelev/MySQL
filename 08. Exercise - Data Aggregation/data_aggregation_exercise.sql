@@ -15,7 +15,7 @@ SELECT * FROM wizzard_deposits;
 SELECT deposit_group
 FROM wizzard_deposits
 GROUP BY deposit_group
-HAVING MIN(magic_wand_size)
+ORDER BY AVG(magic_wand_size)
 LIMIT 1;
 
 -- Problem 5
@@ -114,3 +114,15 @@ ORDER BY department_id;
 -- Problem 15
 SELECT COUNT(salary) FROM employees
 WHERE manager_id IS NULL;
+
+-- Problem 16
+SELECT e.department_id, (
+                          SELECT DISTINCT salary FROM employees
+                          WHERE department_id = e.department_id
+                          ORDER BY salary DESC
+                          LIMIT 1 OFFSET 2
+) AS `third_highest_salary`
+FROM employees AS e
+GROUP BY e.department_id
+HAVING third_highest_salary
+ORDER BY e.department_id;
