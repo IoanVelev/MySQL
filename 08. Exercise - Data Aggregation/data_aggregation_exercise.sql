@@ -128,10 +128,15 @@ HAVING third_highest_salary
 ORDER BY e.department_id;
 
 -- Problem 17
-SELECT first_name, last_name, department_id FROM employees AS e
+SELECT e.first_name, e.last_name, e.department_id FROM employees AS e
 WHERE salary > (
 			    SELECT AVG(salary) FROM employees
                 WHERE department_id = e.department_id
 )
-ORDER BY department_id, employee_id
+ORDER BY e.department_id, e.employee_id
 LIMIT 10;
+
+-- Problem 18
+SELECT department_id, SUM(salary) AS `total_salary` FROM employees
+GROUP BY department_id
+ORDER BY department_id;
