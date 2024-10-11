@@ -52,5 +52,16 @@ SELECT e.first_name, e.last_name, e.hire_date, d.name AS `dept_name`
 FROM employees e
 JOIN departments d
 ON d.department_id = e.department_id
-WHERE e.hire_date > '1999/1/1' AND d.name = 'Sales' OR d.name = 'Finance'
+WHERE e.hire_date > '1999/1/1' AND d.name IN ('Sales','Finance')
 ORDER BY hire_date;
+
+-- Problem 7
+SELECT e.employee_id, e.first_name, p.name AS `project_name`
+FROM employees e
+JOIN employees_projects ep
+ON ep.employee_id = e.employee_id
+JOIN projects p
+ON p.project_id = ep.project_id 
+WHERE DATE(p.start_date) > '2002/08/13' AND p.end_date IS NULL
+ORDER BY e.first_name, p.name
+LIMIT 5;
