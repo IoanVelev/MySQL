@@ -17,3 +17,9 @@ JOIN towns t
 ON t.town_id = a.town_id 
 ORDER BY first_name, last_name
 LIMIT 5;
+
+-- Problem 3
+SELECT e.employee_id, e.first_name, e.last_name, d.name
+FROM employees e
+JOIN departments d ON d.department_id = e.department_id
+ORDER BY e.employee_id DESC;
