@@ -114,3 +114,13 @@ JOIN peaks p
 ON p.mountain_id = mc.mountain_id
 WHERE mc.country_code LIKE 'BG' AND p.elevation > 2835
 ORDER BY p.elevation DESC;
+
+-- Problem 13
+SELECT c.country_code, COUNT(*) AS `mountain_range`
+FROM countries c
+JOIN mountains_countries mc
+ON c.country_code = mc.country_code
+WHERE mc.country_code IN ('US', 'RU', 'BG')
+GROUP BY mc.country_code
+ORDER BY mountain_range DESC;
+
