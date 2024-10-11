@@ -35,3 +35,14 @@ JOIN departments d ON d.department_id = e.department_id
 HAVING e.salary > 15000
 ORDER BY d.department_id DESC
 LIMIT 5;
+
+
+-- Problem 5
+SELECT e.employee_id, e.first_name
+FROM employees e
+LEFT JOIN employees_projects ep
+ON e.employee_id = ep.employee_id
+WHERE ep.project_id IS NULL
+ORDER BY e.employee_id DESC
+LIMIT 3;
+
