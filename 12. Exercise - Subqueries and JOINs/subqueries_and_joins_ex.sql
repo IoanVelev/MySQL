@@ -46,3 +46,11 @@ WHERE ep.project_id IS NULL
 ORDER BY e.employee_id DESC
 LIMIT 3;
 
+
+-- Problem 6
+SELECT e.first_name, e.last_name, e.hire_date, d.name AS `dept_name`
+FROM employees e
+JOIN departments d
+ON d.department_id = e.department_id
+WHERE e.hire_date > '1999/1/1' AND d.name = 'Sales' OR d.name = 'Finance'
+ORDER BY hire_date;
