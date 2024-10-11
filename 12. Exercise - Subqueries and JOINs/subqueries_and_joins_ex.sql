@@ -22,4 +22,16 @@ LIMIT 5;
 SELECT e.employee_id, e.first_name, e.last_name, d.name
 FROM employees e
 JOIN departments d ON d.department_id = e.department_id
+WHERE d.name = 'Sales'
 ORDER BY e.employee_id DESC;
+
+-- Problem 4
+SELECT e.employee_id,
+e.first_name,
+e.salary,
+d.name
+FROM employees e
+JOIN departments d ON d.department_id = e.department_id
+HAVING e.salary > 15000
+ORDER BY e.department_id DESC
+LIMIT 5;
