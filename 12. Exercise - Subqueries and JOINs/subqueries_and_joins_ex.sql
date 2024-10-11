@@ -124,3 +124,18 @@ WHERE mc.country_code IN ('US', 'RU', 'BG')
 GROUP BY mc.country_code
 ORDER BY mountain_range DESC;
 
+-- Problem 14
+SELECT c.country_name, r.river_name FROM countries c
+LEFT JOIN countries_rivers cr
+ON c.country_code = cr.country_code
+LEFT JOIN rivers r
+ON r.id = cr.river_id
+WHERE continent_code LIKE 'AF'
+ORDER BY c.country_name
+LIMIT 5;
+
+-- Problem 16
+SELECT COUNT(*) AS `country_count` FROM countries c
+LEFT JOIN mountains_countries mc
+ON c.country_code = mc.country_code
+WHERE mountain_id IS NULL;
