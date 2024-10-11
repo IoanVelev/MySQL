@@ -97,3 +97,20 @@ JOIN departments d
 ON d.department_id = e.department_id
 ORDER BY e.employee_id
 LIMIT 5;
+
+
+-- Problem 11
+SELECT AVG(salary) AS `min_average_salary`
+FROM employees
+GROUP BY department_id
+ORDER BY min_average_salary
+LIMIT 1;
+
+-- Problem 12
+SELECT mc.country_code, m.mountain_range, p.peak_name, p.elevation FROM mountains_countries mc
+JOIN mountains m
+ON m.id = mc.mountain_id
+JOIN peaks p
+ON p.mountain_id = mc.mountain_id
+WHERE mc.country_code LIKE 'BG' AND p.elevation > 2835
+ORDER BY p.elevation DESC;
