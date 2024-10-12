@@ -93,3 +93,29 @@ WHERE dam.medal_id IS NULL
 ORDER BY a.id;
 
 SELECT * FROM disciplines_athletes_medals;
+
+-- Problem 8
+
+SELECT a.id, a.first_name, a.last_name, COUNT(*) AS `medals_count`, s.name AS `sport` FROM disciplines_athletes_medals dam
+JOIN athletes a
+ON dam.athlete_id = a.id
+JOIN disciplines d
+ON d.id = dam.discipline_id
+JOIN medals m
+ON m.id = dam.medal_id
+JOIN sports s
+ON s.id = d.sport_id
+GROUP BY a.id, a.first_name, a.last_name, s.name
+ORDER BY medals_count DESC, a.first_name
+LIMIT 10;
+
+-- Problem 9
+SELECT CONCAT(first_name, ' ', last_name) AS `full_name`, 
+CASE 
+    WHEN age <= 18 THEN 'Teenager'
+    WHEN age <= 25 THEN 'Young adult'
+    WHEN age >= 26 THEN 'Adult'
+END AS age_group
+FROM athletes
+ORDER BY age DESC, first_name;
+
