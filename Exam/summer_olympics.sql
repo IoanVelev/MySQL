@@ -1,3 +1,5 @@
+-- 1. TABLE DESIGN
+
 CREATE TABLE countries(
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(40) NOT NULL UNIQUE
@@ -41,3 +43,35 @@ CREATE TABLE disciplines_athletes_medals(
     FOREIGN KEY(athlete_id) REFERENCES athletes(id),
     FOREIGN KEY(medal_id) REFERENCES medals(id)
 );
+
+-- 2. DML Insert
+INSERT INTO athletes(first_name, last_name, age, country_id)
+SELECT UPPER(first_name), CONCAT_WS(' ', last_name, 'comes from', c.name),
+age + country_id,
+country_id
+FROM athletes
+JOIN countries c
+ON c.id = country_id
+WHERE LEFT(c.name, 1) = 'A';
+
+SELECT * FROM athletes;
+
+DROP DATABASE summer_olympics;
+CREATE DATABASE summer_olympics;
+
+-- 3. Update
+SET SQL_SAFE_UPDATES = 0;
+UPDATE disciplines
+SET name = SUBSTRING(name, 1, LOCATE('weight', name) - 1)
+WHERE name LIKE '%weight%';
+
+-- 4 Delete
+DELETE FROM athletes
+WHERE age > 35;
+
+-- Querying Problem 5
+SELECT c.id, c.name FROM countries c
+LEFT JOIN athletes a ON a.country_id = c.id
+WHERE a.country_id IS NULL
+ORDER BY c.name DESC
+LIMIT 15;
