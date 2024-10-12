@@ -119,3 +119,35 @@ END AS age_group
 FROM athletes
 ORDER BY age DESC, first_name;
 
+-- Problem 10
+DELIMITER $$
+
+CREATE FUNCTION udf_total_medals_count_by_country (name VARCHAR(40))
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    RETURN (SELECT COUNT(*) FROM medals m
+            JOIN disciplines_athletes_medals dam
+            ON dam.medal_id = m.id
+            JOIN athletes a
+            ON a.id = dam.athlete_id
+            JOIN countries c
+            ON c.id = a.country_id
+            WHERE c.name = `name`);
+END $$
+
+-- Problem 11
+
+CREATE PROCEDURE udp_first_name_to_upper_case(letter CHAR(1))
+BEGIN
+UPDATE athletes
+SET first_name = UPPER(first_name)
+WHERE RIGHT(first_name, 1) = `letter`;
+END $$
+DELIMITER ;
+
+SELECT udf_total_medals_count_by_country('Bahamas') AS `count_of_medals`;
+
+CALL udp_first_name_to_upper_case('s');
+
+SELECT * FROM athletes;
