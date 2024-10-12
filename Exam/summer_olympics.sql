@@ -75,3 +75,21 @@ LEFT JOIN athletes a ON a.country_id = c.id
 WHERE a.country_id IS NULL
 ORDER BY c.name DESC
 LIMIT 15;
+
+-- Problem 6
+SELECT CONCAT(first_name, ' ', last_name) AS `full_name`, age
+FROM athletes a
+JOIN disciplines_athletes_medals dam
+ON dam.athlete_id = a.id
+ORDER BY a.age, a.id
+LIMIT 2;
+
+-- Problem 7
+SELECT a.id, a.first_name, a.last_name 
+FROM athletes a
+LEFT JOIN disciplines_athletes_medals dam
+ON dam.athlete_id = a.id
+WHERE dam.medal_id IS NULL
+ORDER BY a.id;
+
+SELECT * FROM disciplines_athletes_medals;
