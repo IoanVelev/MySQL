@@ -1,5 +1,4 @@
 -- Problem 1
-
 CREATE TABLE passports(
     passport_id INT AUTO_INCREMENT PRIMARY KEY,
     passport_number VARCHAR(8) UNIQUE
@@ -25,5 +24,30 @@ INSERT INTO people VALUES
 (3, 'Yana', 60200.00, 101);
 
 
+-- Problem 2
+CREATE TABLE manufacturers(
+    manufacturer_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30),
+    established_on DATE
+);
 
+CREATE TABLE models(
+    model_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(10),
+    manufacturer_id INT,
+    
+    FOREIGN KEY (manufacturer_id) REFERENCES manufacturers(manufacturer_id)
+);
 
+INSERT INTO manufacturers VALUES 
+(1, 'BMW', '1916-03-01'),
+(2, 'Tesla', '2003-01-01'),
+(3, 'Lada', '1966-05-01');
+
+INSERT INTO models VALUES 
+(101, 'X1', 1),
+(102, 'i6', 1),
+(103, 'Model S', 2),
+(104, 'Model X', 2),
+(105, 'Model 3', 2),
+(106, 'Nova', 3);
