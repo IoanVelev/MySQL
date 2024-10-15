@@ -89,3 +89,24 @@ INSERT INTO students_exams VALUES
 (3, 103),
 (2, 102),
 (2, 103);
+
+-- Problem 4
+-- When using self-referencing tables dont add foreign key in create table statement. Instead add foreign key in atler table statement. 
+-- Step 1: Create table, Step 2: Insert data, Step 3: Add foreign key if needed
+CREATE TABLE teachers(
+    teacher_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(45),
+    manager_id INT
+);
+
+INSERT INTO teachers VALUES
+(101, 'John', NULL),
+(102, 'Maya', 106),
+(103, 'Silvia', 106),
+(104, 'Ted', 105),
+(105, 'Mark', 101),
+(106, 'Greta', 101);
+
+ALTER TABLE teachers
+ADD FOREIGN KEY (manager_id)
+REFERENCES teachers(teacher_id);
