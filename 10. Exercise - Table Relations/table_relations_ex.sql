@@ -113,7 +113,7 @@ REFERENCES teachers(teacher_id);
 
 
 -- Problem 5
-CREATE TABLE items_types(
+CREATE TABLE item_types(
     item_type_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50)
 );
@@ -123,7 +123,7 @@ CREATE TABLE items(
     name VARCHAR(50),
     item_type_id INT,
     
-    FOREIGN KEY (item_type_id) REFERENCES items_types(item_type_id)
+    FOREIGN KEY (item_type_id) REFERENCES item_types(item_type_id)
 );
 
 CREATE TABLE cities(
