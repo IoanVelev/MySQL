@@ -195,3 +195,11 @@ CREATE TABLE agenda(
     FOREIGN KEY (student_id) REFERENCES students(student_id),
     FOREIGN KEY (subject_id) REFERENCES subjects(subject_id)
 );
+
+-- Problem 9
+SELECT mountain_range, p.peak_name, p.elevation AS `peak_elevation` 
+FROM mountains m
+JOIN peaks p
+ON p.mountain_id = m.id
+WHERE mountain_range = 'Rila'
+ORDER BY p.elevation DESC;
