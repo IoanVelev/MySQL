@@ -155,3 +155,6 @@ CREATE TABLE order_items(
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (item_id) REFERENCES items(item_id)
 );
+
+-- Problem 6
+CREATE DATABASE university;
