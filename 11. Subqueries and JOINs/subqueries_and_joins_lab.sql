@@ -27,3 +27,11 @@ department_id,
 salary
 FROM employees
 WHERE manager_id IS NULL;
+
+-- Problem 4
+SELECT AVG(salary)
+FROM employees;
+
+SELECT COUNT(*) AS `count` FROM employees
+WHERE salary > (SELECT AVG(salary)
+FROM employees);
