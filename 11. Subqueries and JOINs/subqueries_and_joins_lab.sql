@@ -18,3 +18,12 @@ JOIN addresses a
 ON a.town_id = t.town_id
 WHERE t.name IN ('San Francisco', 'Sofia', 'Carnation')
 ORDER BY t.town_id, a.address_id;
+
+-- Problem 3
+SELECT employee_id,
+first_name,
+last_name,
+department_id,
+salary
+FROM employees
+WHERE manager_id IS NULL;
