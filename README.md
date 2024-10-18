@@ -16,3 +16,7 @@ The training participants will acquire skills for working with relational databa
  -> Using procedures and functions
 
  -> Creation of basic Back-End architectures
+
+# CERTIFICATE:
+![MySQL - September 2024 - Certificate](https://github.com/user-attachments/assets/a2423dc0-1510-485d-b2c4-c200bdf09deb)
+
