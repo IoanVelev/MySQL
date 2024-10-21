@@ -15,7 +15,20 @@ WHERE t.name = town_name);
 
 RETURN e_count;
 END$$
+DELIMITER ;
 
 SELECT ufn_count_employees_by_town('Berlin');
 
+-- Problem 2
+DELIMITER $$
+CREATE PROCEDURE usp_raise_salaries(department_name VARCHAR(30))
+BEGIN
+    UPDATE employees e
+    SET e.salary = e.salary * 1.05
+    WHERE e.department_id = (SELECT d.department_id FROM departments d 
+                             WHERE d.name = department_name);
+                             
+END$$
+DELIMITER ;
 
+CALL usp_raise_salaries('Finance');
