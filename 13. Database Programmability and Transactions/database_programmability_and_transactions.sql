@@ -34,6 +34,7 @@ DELIMITER ;
 CALL usp_raise_salaries('Finance');
 
 -- Problem 3
+-- WITHOUT TRANSACTION
 DELIMITER $$
 CREATE PROCEDURE usp_raise_salary_by_id(id INT)
 BEGIN
@@ -44,3 +45,29 @@ END$$
 DELIMITER ;
 
 CALL usp_raise_salary_by_id(17);
+
+-- WITH TRANSACTION
+DELIMITER $$
+DROP PROCEDURE IF EXISTS usp_raise_salary_by_id;
+CREATE PROCEDURE usp_raise_salary_by_id(emp_id INT)
+BEGIN
+    DECLARE e_count INT;
+    SET e_count := (SELECT COUNT(*) FROM employees WHERE employee_id = emp_id);
+    
+    START TRANSACTION;
+     -- Either we hit ROLLBACK or either COMMIT
+    UPDATE employees
+    SET salary = salary * 1.05
+    WHERE employee_id = emp_id;
+    
+    IF (e_count = 0) THEN
+        ROLLBACK;
+	ELSE
+        COMMIT;
+	END IF;
+END$$
+DELIMITER ;
+
+
+CALL usp_raise_salary_by_id(43);
+SELECT * FROM employees WHERE employee_id = 43;
