@@ -71,3 +71,20 @@ DELIMITER ;
 
 CALL usp_raise_salary_by_id(43);
 SELECT * FROM employees WHERE employee_id = 43;
+
+-- Triggers
+
+DELIMITER $$
+CREATE TRIGGER tr_add_town_addres
+AFTER INSERT
+ON towns
+FOR EACH ROW
+    INSERT INTO addresses(address_text, town_id)
+    VALUES (CONCAT(NEW.name, ' Center'), NEW.town_id);
+END$$
+DELIMITER ;
+
+INSERT INTO towns(name) VALUES ('New'), ('Old');
+
+SELECT * FROM addresses
+ORDER BY address_id DESC;
