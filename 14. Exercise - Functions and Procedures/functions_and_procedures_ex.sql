@@ -24,13 +24,15 @@ CALL usp_get_employees_salary_above(45000);
 
 -- Problem 3
 DELIMITER $$
-CREATE PROCEDURE usp_get_towns_starting_with(str VARCHAR(50))
+CREATE PROCEDURE usp_get_towns_starting_with(str VARCHAR(20))
 BEGIN
-    SELECT name FROM towns
+    SELECT name AS `town_name` 
+    FROM towns
     WHERE LEFT(name, LENGTH(str)) LIKE str
     ORDER BY name;
 END$$
 DELIMITER ;
 
-CALL usp_get_towns_starting_with('b');
+CALL usp_get_towns_starting_with('Be');
+
 
