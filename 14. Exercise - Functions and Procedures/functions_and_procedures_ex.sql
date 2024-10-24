@@ -83,4 +83,19 @@ DELIMITER ;
 SELECT ufn_get_salary_level(125500.00) AS `salary_level`;
 CALL usp_get_employees_by_salary_level('High');
 
+-- Problem 7
+DELIMITER $$
+CREATE FUNCTION ufn_is_word_comprised(set_of_letters VARCHAR(50), word VARCHAR(50))
+RETURNS TINYINT
+NO SQL
+BEGIN
+    DECLARE result TINYINT;
+    SET result := (SELECT word REGEXP CONCAT('^[', set_of_letters , ']+$'));
+    RETURN result;
+END$$
+
+DELIMITER ;
+
+SELECT ufn_is_word_comprised('bobr', 'Rob');
+
 
