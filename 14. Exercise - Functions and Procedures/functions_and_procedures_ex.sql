@@ -69,6 +69,18 @@ BEGIN
     END CASE;
     RETURN salary_level;
 END$$
+
+-- Problem 6
+CREATE PROCEDURE usp_get_employees_by_salary_level(salary_level VARCHAR(10))
+BEGIN
+    SELECT first_name, last_name
+    FROM employees
+    WHERE salary_level = (SELECT ufn_get_salary_level(salary))
+    ORDER BY first_name DESC, last_name DESC;
+END$$
 DELIMITER ;
 
-SELECT ufn_get_salary_level(13500) AS `salary_level`;
+SELECT ufn_get_salary_level(125500.00) AS `salary_level`;
+CALL usp_get_employees_by_salary_level('High');
+
+
