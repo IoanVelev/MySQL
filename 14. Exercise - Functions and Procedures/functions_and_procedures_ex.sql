@@ -51,3 +51,24 @@ END$$
 DELIMITER ;
 
 CALL usp_get_employees_from_town('Sofia');
+
+-- Problem 5
+DELIMITER $$
+CREATE FUNCTION ufn_get_salary_level(emp_salary DECIMAL(19, 4))
+RETURNS VARCHAR(10)
+DETERMINISTIC 
+BEGIN
+    DECLARE salary_level VARCHAR(10);
+    CASE
+        WHEN emp_salary < 30000 THEN
+            SET salary_level := 'Low';
+        WHEN emp_salary <= 50000 THEN
+            SET salary_level := 'Average';
+		WHEN emp_salary > 50000 THEN
+            SET salary_level := 'High';
+    END CASE;
+    RETURN salary_level;
+END$$
+DELIMITER ;
+
+SELECT ufn_get_salary_level(13500) AS `salary_level`;
