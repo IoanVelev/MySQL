@@ -62,7 +62,7 @@ BEGIN
     CASE
         WHEN emp_salary < 30000 THEN
             SET salary_level := 'Low';
-        WHEN emp_salary <= 50000 THEN
+        WHEN emp_salary BETWEEN 30000 AND 50000 THEN
             SET salary_level := 'Average';
 		WHEN emp_salary > 50000 THEN
             SET salary_level := 'High';
