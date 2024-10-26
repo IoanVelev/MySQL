@@ -155,3 +155,24 @@ DELIMITER ;
 
 SELECT ufn_calculate_future_value(1000, 0.5, 5);
 CALL usp_calculate_future_value_for_account(5, 0.01);
+
+
+-- Problem 12
+DELIMITER $$
+CREATE PROCEDURE usp_deposit_money(acc_id INT, money_ammount DECIMAL(12, 4))
+BEGIN
+    START TRANSACTION;
+        IF (money_ammount <= 0 OR (SELECT COUNT(*) FROM accounts WHERE id = acc_id) = 0) THEN
+            ROLLBACK;
+		ELSE
+		    UPDATE accounts 
+		    SET balance = balance + money_ammount
+		    WHERE id = acc_id;
+		    COMMIT;
+        END IF;
+END$$
+
+DELIMITER ;
+
+CALL usp_deposit_money(1, 0);
+SELECT * FROM accounts WHERE id = 1;
