@@ -109,3 +109,19 @@ END$$
 DELIMITER ;
 
 CALL usp_get_holders_full_name();
+
+-- Problem 9
+DELIMITER $$
+CREATE PROCEDURE usp_get_holders_with_balance_higher_than(num INT)
+BEGIN
+    SELECT ac.first_name, ac.last_name FROM account_holders ac
+    JOIN accounts a
+	ON a.account_holder_id = ac.id
+    GROUP BY a.account_holder_id
+    HAVING SUM(a.balance) > num
+    ORDER BY a.account_holder_id;
+END$$
+
+DELIMITER ;
+
+CALL usp_get_holders_with_balance_higher_than(7000);
