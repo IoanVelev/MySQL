@@ -125,3 +125,18 @@ END$$
 DELIMITER ;
 
 CALL usp_get_holders_with_balance_higher_than(7000);
+
+-- Problem 10
+DELIMITER $$
+CREATE FUNCTION ufn_calculate_future_value(sum DECIMAL(10, 4), yearly_interest_rate DOUBLE, num_years INT)
+RETURNS DECIMAL(10, 4)
+NO SQL
+BEGIN
+    DECLARE result DECIMAL(10, 4);
+    SET result := sum * POWER((1 + yearly_interest_rate), num_years);
+    RETURN result;
+END$$
+
+DELIMITER ;
+
+SELECT ufn_calculate_future_value(1000, 0.5, 5);
