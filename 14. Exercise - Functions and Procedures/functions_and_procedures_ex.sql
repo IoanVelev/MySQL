@@ -176,3 +176,24 @@ DELIMITER ;
 
 CALL usp_deposit_money(1, 0);
 SELECT * FROM accounts WHERE id = 1;
+
+-- Problem 13
+DELIMITER $$
+CREATE PROCEDURE usp_withdraw_money(acc_id INT, money_ammount DECIMAL(12, 4))
+BEGIN
+    START TRANSACTION;
+	    IF ((SELECT balance FROM accounts WHERE id = acc_id) < money_ammount OR money_ammount < 0) THEN
+            ROLLBACK;
+		ELSE
+            UPDATE accounts
+            SET balance = balance - money_ammount
+            WHERE id = acc_id;
+            COMMIT;
+		END IF;
+END$$
+
+DELIMITER ;
+
+CALL usp_withdraw_money(1, 10);
+
+DROP PROCEDURE usp_withdraw_money;
