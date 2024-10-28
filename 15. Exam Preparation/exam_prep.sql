@@ -92,3 +92,19 @@ ORDER BY days_of_experience DESC
 LIMIT 10;
 
 SELECT * FROM workers;
+
+-- Problem 6
+SELECT w.id AS `worker_id`,
+w.first_name,
+w.last_name,
+p.name AS `preserve_name`,
+c.country_code AS `country_code`
+FROM workers w
+JOIN preserves p
+ON preserve_id = p.id
+JOIN countries_preserves cp
+ON p.id = cp.preserve_id
+JOIN countries c
+ON cp.country_id = c.id
+WHERE salary > 5000 AND age < 50
+ORDER BY country_code;
