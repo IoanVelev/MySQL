@@ -81,3 +81,14 @@ WHERE position_id IN (5, 8, 11, 13);
 -- 04. Delete
 DELETE FROM preserves
 WHERE established_on IS NULL;
+
+-- SECTION 3
+-- Problem 5
+SELECT CONCAT(first_name, ' ', last_name) AS `full_name`,
+DATEDIFF("2024-01-01", start_date) AS days_of_experience
+FROM workers
+WHERE 2024 - YEAR(start_date) > 5
+ORDER BY days_of_experience DESC
+LIMIT 10;
+
+SELECT * FROM workers;
