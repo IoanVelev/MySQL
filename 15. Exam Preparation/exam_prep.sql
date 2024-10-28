@@ -59,6 +59,7 @@ CREATE TABLE countries_preserves(
 );
 
 -- SECTION 2 DATA MANIPULATION LANGUAGE - DML
+-- 02. Insert
 INSERT INTO preserves(name, latitude, longitude, area, type, established_on)
 SELECT CONCAT_WS(' ', name, 'is in South Hemisphere') AS name,
 latitude,
@@ -71,3 +72,7 @@ WHERE latitude < 0;
 
 SELECT * FROM preserves;
 
+-- 03. Update
+UPDATE workers
+SET salary = salary + 500
+WHERE position_id IN (5, 8, 11, 13);
