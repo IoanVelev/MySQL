@@ -57,3 +57,17 @@ CREATE TABLE countries_preserves(
     FOREIGN KEY (country_id) REFERENCES countries(id),
     FOREIGN KEY (preserve_id) REFERENCES preserves(id)
 );
+
+-- SECTION 2 DATA MANIPULATION LANGUAGE - DML
+INSERT INTO preserves(name, latitude, longitude, area, type, established_on)
+SELECT CONCAT_WS(' ', name, 'is in South Hemisphere') AS name,
+latitude,
+longitude,
+area * id AS area,
+LOWER(type) AS type,
+established_on
+FROM preserves
+WHERE latitude < 0;
+
+SELECT * FROM preserves;
+
