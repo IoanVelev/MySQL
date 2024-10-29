@@ -126,3 +126,15 @@ ON cp.country_id = c.id
 WHERE MONTH(established_on) = 5
 GROUP BY p.name, c.country_code
 ORDER BY p.established_on;
+
+-- Problem 9
+SELECT id, name,
+CASE
+    WHEN area <= 100 THEN "very small"
+    WHEN area <= 1000 THEN "small"
+    WHEN area <= 10000 THEN "medium"
+    WHEN area <= 50000 THEN "large"
+    WHEN area > 50000 THEN "very large"
+END AS `category`
+FROM preserves
+ORDER BY area DESC;
