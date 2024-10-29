@@ -108,3 +108,11 @@ JOIN countries c
 ON cp.country_id = c.id
 WHERE salary > 5000 AND age < 50
 ORDER BY country_code;
+
+-- Problem 7
+SELECT p.name, COUNT(*) AS `armed_workers` FROM workers w
+JOIN preserves p
+ON w.preserve_id = p.id
+WHERE w.is_armed = 1
+GROUP BY p.name
+ORDER BY armed_workers DESC, p.name;
