@@ -138,3 +138,20 @@ CASE
 END AS `category`
 FROM preserves
 ORDER BY area DESC;
+
+-- Problem 10
+DELIMITER $$
+CREATE FUNCTION udf_average_salary_by_position_name(name VARCHAR(40))
+RETURNS DOUBLE(19, 2)
+NO SQL
+BEGIN
+    RETURN (SELECT AVG(w.salary) AS `position_average_salary` FROM workers w
+			JOIN positions p
+            ON w.position_id = p.id
+            WHERE p.name = name
+    );
+END$$
+
+DELIMITER ;
+
+SELECT udf_average_salary_by_position_name('Forester') AS `position_average_salary`;
