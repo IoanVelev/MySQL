@@ -62,3 +62,10 @@ age + LEFT(phone_number, 1),
 CONCAT("1+", '', phone_number)
 FROM students
 WHERE age < 20;
+
+-- 03. Update
+UPDATE driving_schools ds
+JOIN cities c
+ON ds.city_id = c.id
+SET ds.average_lesson_price = ds.average_lesson_price + 30
+WHERE c.name = 'London' AND ds.night_time_driving = 1;
