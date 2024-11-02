@@ -73,3 +73,13 @@ WHERE c.name = 'London' AND ds.night_time_driving = 1;
 -- 04. Delete
 DELETE FROM driving_schools
 WHERE night_time_driving = 0;
+
+
+-- SECTION 3 
+-- 05.
+SELECT CONCAT(first_name, ' ', last_name) AS `full_name`,
+age
+FROM students
+WHERE first_name LIKE '%a%'
+ORDER BY age, id
+LIMIT 3;
