@@ -160,3 +160,20 @@ END $$
 DELIMITER ;
 
 SELECT udf_average_lesson_price_by_city('London');
+
+-- 11.
+DELIMITER $$
+CREATE PROCEDURE udp_find_school_by_car(brand VARCHAR(20))
+BEGIN
+    SELECT ds.name, ROUND(AVG(ds.average_lesson_price), 2) AS `average_lesson_price`
+    FROM driving_schools ds
+    JOIN cars c
+    ON ds.car_id = c.id
+    WHERE c.brand = brand
+    GROUP BY ds.name
+    ORDER by average_lesson_price DESC;
+END$$
+
+DELIMITER ;
+
+CALL udp_find_school_by_car('Mercedes-Benz');
