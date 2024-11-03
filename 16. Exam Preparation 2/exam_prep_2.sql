@@ -112,3 +112,15 @@ ON ds.city_id = c.id
 GROUP by i.id, c.name
 HAVING students_count > 1
 ORDER BY students_count DESC, i.first_name;
+
+-- 08.
+SELECT c.name AS name,
+COUNT(*) AS `instructors_count`
+FROM cities c
+JOIN driving_schools ds
+ON c.id = ds.city_id
+JOIN instructors_driving_schools ids
+ON ds.id = ids.driving_school_id
+GROUP BY c.id
+HAVING instructors_count > 0
+ORDER BY instructors_count DESC, c.name;
