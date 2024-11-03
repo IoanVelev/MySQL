@@ -94,3 +94,21 @@ ON ds.id = ids.driving_school_id
 WHERE ids.driving_school_id IS NULL
 ORDER BY c.brand, ds.id
 LIMIT 5;
+
+-- 07.
+SELECT i.first_name,
+i.last_name,
+COUNT(*) AS `students_count`,
+c.name AS `city`
+FROM instructors_students i_s
+JOIN instructors i
+ON i_s.instructor_id = i.id
+JOIN instructors_driving_schools ids
+ON i_s.instructor_id = ids.instructor_id
+JOIN driving_schools ds
+ON ids.driving_school_id = ds.id
+JOIN cities c
+ON ds.city_id = c.id
+GROUP by i.id, c.name
+HAVING students_count > 1
+ORDER BY students_count DESC, i.first_name;
