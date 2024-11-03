@@ -155,7 +155,6 @@ BEGIN
 			    JOIN cities c
                 ON ds.city_id = c.id
                 WHERE c.name = name
-                GROUP BY c.name
                 );
 END $$
 DELIMITER ;
