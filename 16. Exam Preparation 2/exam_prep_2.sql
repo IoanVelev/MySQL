@@ -124,3 +124,22 @@ ON ds.id = ids.driving_school_id
 GROUP BY c.id
 HAVING instructors_count > 0
 ORDER BY instructors_count DESC, c.name;
+
+-- 09.
+SELECT CONCAT(first_name, ' ', last_name) AS `full_name`,
+CASE
+    WHEN YEAR(has_a_license_from) BETWEEN 1980 AND 1989
+        THEN "Specialist"
+	WHEN YEAR(has_a_license_from) BETWEEN 1990 AND 1999
+        THEN "Advanced"
+	WHEN YEAR(has_a_license_from) BETWEEN 2000 AND 2007
+        THEN "Experienced"
+	WHEN YEAR(has_a_license_from) BETWEEN 2008 AND 2014
+        THEN "Qualified"
+	WHEN YEAR(has_a_license_from) BETWEEN 2015 AND 2019
+        THEN "Provisional"
+	WHEN YEAR(has_a_license_from) >= 2020
+        THEN "Trainee"
+END AS `level`
+FROM instructors
+ORDER BY YEAR(has_a_license_from), first_name;
