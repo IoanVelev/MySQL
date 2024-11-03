@@ -170,7 +170,6 @@ BEGIN
     JOIN cars c
     ON ds.car_id = c.id
     WHERE c.brand = brand
-    GROUP BY ds.name
     ORDER by average_lesson_price DESC;
 END$$
 
