@@ -143,3 +143,21 @@ CASE
 END AS `level`
 FROM instructors
 ORDER BY YEAR(has_a_license_from), first_name;
+
+-- 10.
+DELIMITER $$
+CREATE FUNCTION udf_average_lesson_price_by_city(name VARCHAR(40))
+RETURNS DECIMAL(10, 2)
+DETERMINISTIC
+READS SQL DATA
+BEGIN
+    RETURN (SELECT AVG(ds.average_lesson_price) FROM driving_schools ds
+			    JOIN cities c
+                ON ds.city_id = c.id
+                WHERE c.name = name
+                GROUP BY c.name
+                );
+END $$
+DELIMITER ;
+
+SELECT udf_average_lesson_price_by_city('London');
