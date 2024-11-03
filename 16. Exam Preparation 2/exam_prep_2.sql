@@ -165,7 +165,7 @@ SELECT udf_average_lesson_price_by_city('London');
 DELIMITER $$
 CREATE PROCEDURE udp_find_school_by_car(brand VARCHAR(20))
 BEGIN
-    SELECT ds.name, ROUND(AVG(ds.average_lesson_price), 2) AS `average_lesson_price`
+    SELECT ds.name, ROUND(ds.average_lesson_price, 2) AS `average_lesson_price`
     FROM driving_schools ds
     JOIN cars c
     ON ds.car_id = c.id
