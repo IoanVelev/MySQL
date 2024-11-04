@@ -143,7 +143,7 @@ ORDER BY area DESC;
 DELIMITER $$
 CREATE FUNCTION udf_average_salary_by_position_name(name VARCHAR(40))
 RETURNS DOUBLE(19, 2)
-NO SQL
+READS SQL DATA
 BEGIN
     RETURN (SELECT AVG(w.salary) AS `position_average_salary` FROM workers w
 			JOIN positions p
